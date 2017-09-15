@@ -14,6 +14,7 @@ public void start()
 	System.out.println("i am feeling hungry, i am going to eat one of fred arms");
 	fred.setarmCount(fred.getarmCount() - 1);
 	System.out.println(fred);
+	
 	interactWithMonster(fred);
 	}
 	
@@ -21,7 +22,7 @@ public void start()
 private void interactWithMonster(MarshmallowMonster currentMonster)
 {
 		Scanner myScanner = new Scanner(System.in);
-		System.out.println(currentMonster.getName() + " wants know how many eyes you want to eat, pleasee type in how many");
+		System.out.println(currentMonster.getName() + " wants know how many eyes you want to eat, please type in how many");
 		int consumed = myScanner.nextInt();
 		currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
 		System.out.println(currentMonster);
