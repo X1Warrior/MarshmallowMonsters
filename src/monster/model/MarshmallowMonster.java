@@ -67,10 +67,16 @@ public class MarshmallowMonster
 	}
 	public String toString()
 	{
-		String description = "I am a monster, my name is " + name + " i have" + eyeCount + "eyes and only" ;
+		String description = "I am a monster, my name is " + name + " i have" + EyeCount + "eyes and only" ;
 		description += tentacleAmount + " tentacles but I have " + armCount + " arms!." + hasBloop + " tells you";
 		description += " if I have a bloop";
 		return description;
+		
+	}
+
+	public void setEyeCount(int i)
+	{
+		// TODO Auto-generated method stub
 		
 	}
 }
