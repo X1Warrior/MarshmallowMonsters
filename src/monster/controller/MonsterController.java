@@ -69,6 +69,19 @@ public void start()
 			 currentMonster.setarmCount(currentMonster.getarmCount() - armEat);
 			System.out.println("Ok, now I have this many arm " + currentMonster.getarmCount());
 		}
+		
+		System.out.println("How any tentacles do you want to eat? I have " + currentMonster.getTentacleAmount());
+		double food = myScanner.nextDouble();
+		if(food == currentMonster.getTentacleAmount())
+		{
+			System.out.println("You ate all my tentacles!!!");
+		}
+		else
+		{
+			System.out.println("More likely");
+		}
+		
+		
 		myScanner.close();
 		
 		
