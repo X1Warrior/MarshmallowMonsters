@@ -5,7 +5,7 @@ public class MarshmallowMonster
 	//Declaration section of data members
 	
 	private String name;
-	private int EyeCount;
+	private int eyeCount;
 	private int armCount;
 	private double tentacleAmount;
 	private boolean hasBloop;
@@ -13,15 +13,15 @@ public class MarshmallowMonster
 	
 	public MarshmallowMonster()
 	{
-		//initializes everything to 0, false or null
+		//initializes everything to 0, false 
 	}
 	
-	public MarshmallowMonster(String name, int Eyecount, int arms, double tentacleCount, boolean hasbloop)
+	public MarshmallowMonster(String name, int eyeCount, int armCount, double tentacleCount, boolean hasBloop)
 	{
 		this.name = name;
-		this.EyeCount = EyeCount;
+		this.eyeCount = eyeCount;
 		this.armCount = armCount;
-		this.tentacleAmount = tentacleAmount;
+		this.tentacleAmount = tentacleCount;
 		this.hasBloop = hasBloop;
 		
 	}
@@ -31,7 +31,7 @@ public class MarshmallowMonster
 	}
 	public int getEyeCount()
 	{
-		return EyeCount;
+		return eyeCount;
 	}
 	public int getarmCount()
 	{
@@ -49,9 +49,9 @@ public class MarshmallowMonster
 	{
 		this.name = name;
 	}
-	public void setName(int EyeCount)
+	public void setEyeCount(int eyeCount)
 	{
-		this.EyeCount = EyeCount;
+		this.eyeCount = eyeCount;
 	}
 	public void setTentacleAmount(double tentacleAmount)
 	{
@@ -67,16 +67,10 @@ public class MarshmallowMonster
 	}
 	public String toString()
 	{
-		String description = "I am a monster, my name is " + name + " i have" + EyeCount + "eyes and only" ;
+		String description = "I am a monster, my name is " + name + " i have" + eyeCount + "eyes and only" ;
 		description += tentacleAmount + " tentacles but I have " + armCount + " arms!." + hasBloop + " tells you";
 		description += " if I have a bloop";
 		return description;
-		
-	}
-
-	public void setEyeCount(int i)
-	{
-		// TODO Auto-generated method stub
 		
 	}
 }

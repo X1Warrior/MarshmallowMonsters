@@ -9,7 +9,7 @@ public void start()
 	{
 	MarshmallowMonster basic = new MarshmallowMonster();
 	System.out.println(basic);
-	MarshmallowMonster fred = new MarshmallowMonster("Silly Fred Monster", 7, 3, 6, true);
+	MarshmallowMonster fred = new MarshmallowMonster("Silly Fred Monster" , 7 , 3 , 6.7 , true);
 	System.out.println(fred);
 	System.out.println("i am feeling hungry, i am going to eat one of fred arms");
 	fred.setarmCount(fred.getarmCount() - 1);
@@ -27,6 +27,27 @@ public void start()
 		currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
 		System.out.println(currentMonster);
 		
+		System.out.println("How my eyes are you interested in eating?, I Have" + currentMonster.getEyeCount());
+		//consumed = myScanner.nextInt();
+		int eyeEat = myScanner.nextInt();
+		
+		if(eyeEat == 0)
+		{
+			System.out.println("Not hungry? I expected more of you. What a let Down!");
+		}
+		else if(eyeEat < 0)
+		{
+			System.out.println("Are you really trying to eat more than i have. Dang and i thought i was fat!");
+		}
+		else if (eyeEat > currentMonster.getEyeCount())
+		{
+			System.out.println("Dude i cant give what I dont have unless your god and create more Eyes for me.");
+		}
+		else
+		{
+			currentMonster.setEyeCount(currentMonster.getEyeCount() - eyeEat);
+			System.out.println("Ok, now i have dis many eyes " + currentMonster.getarmCount());
+		}
 		System.out.println("How many arms are you interested in eating?, I Have" + currentMonster.getarmCount());
 		//consumed = myScanner.nextInt();
 		int armEat = myScanner.nextInt();
