@@ -1,10 +1,19 @@
 package monster.controller;
 
 import monster.model.MarshmallowMonster;
+import monster.view.MonsterDisplay;
 import java.util.Scanner;
 
 public class MonsterController
 {
+	private MonsterDisplay popup;
+	
+	public MonsterController()
+	{
+		popup = new MonsterDisplay();
+	}
+	
+	
 public void start()
 	{
 	MarshmallowMonster basic = new MarshmallowMonster();
@@ -81,7 +90,9 @@ public void start()
 			System.out.println("More likely");
 		}
 		
-		
+		popup.displayText("Hi there ready to play???");
+		String answer = popup.getResponse("What is the average flight speed of a swallow");
+		System.out.print(answer);
 		myScanner.close();
 		
 		
