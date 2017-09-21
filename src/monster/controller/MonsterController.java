@@ -30,72 +30,86 @@ public void start()
 	interactWithMonster(fred);
 	}
 	
-	
 	private void interactWithMonster(MarshmallowMonster currentMonster)
-
 	{
 		Scanner myScanner = new Scanner(System.in);
 //		System.out.println(currentMonster.getName() + " wants know how many eyes you want to eat, please type in how many");
-		int consumed;
-		String response = popup.getResponse(currentMonster.getName() + " wants know how many eyes you want to eat, please type in how many");
+		int consumed = 0;
 		
-		consumed = Integer.parseInt(response);
 //		int consumed = myScanner.nextInt();
 		currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
 		System.out.println(currentMonster);
-		
-		System.out.println("How my eyes are you interested in eating?, I Have" + currentMonster.getEyeCount());
+//		System.out.println("How my eyes are you interested in eating?, I Have" + currentMonster.getEyeCount());
+		 String response = popup.getResponse("How my eyes are you interested in eating?, I Have" + currentMonster.getEyeCount());
 		//consumed = myScanner.nextInt();
 		int eyeEat = myScanner.nextInt();
 		
 		if(eyeEat == 0)
 		{
-			System.out.println("Not hungry? I expected more of you. What a let Down!");
+//			System.out.println("Not hungry? I expected more of you. What a let Down!");
+			popup.displayText("Not hungry? I expected more of you. What a let Down!");
 		}
 		else if(eyeEat < 0)
 		{
-			System.out.println("Are you really trying to eat more than i have. Dang and i thought i was fat!");
+//			System.out.println("Are you really trying to eat more than i have. Dang and i thought i was fat!");
+			popup.displayText("Are you really trying to eat more than i have. Dang and i thought i was fat!");
 		}
 		else if (eyeEat > currentMonster.getEyeCount())
 		{
-			System.out.println("Dude i cant give what I dont have unless your god and create more Eyes for me.");
+//			System.out.println("Dude i cant give what I dont have unless your god and create more Eyes for me.");
+			popup.displayText("Dude i cant give what I dont have unless your god and create more Eyes for me.");
 		}
 		else
 		{
 			currentMonster.setEyeCount(currentMonster.getEyeCount() - eyeEat);
-			System.out.println("Ok, now i have dis many eyes " + currentMonster.getarmCount());
+//			System.out.println("Ok, now i have dis many eyes " + currentMonster.getarmCount());
+			popup.displayText("Ok, now i have dis many eyes " + currentMonster.getEyeCount());
 		}
-		System.out.println("How many arms are you interested in eating?, I Have" + currentMonster.getarmCount());
+//		System.out.println("How many arms are you interested in eating?, I Have" + currentMonster.getarmCount());
+		popup.getResponse("How many arms are you interested in eating?, I Have" + currentMonster.getarmCount());
 		//consumed = myScanner.nextInt();
 		int armEat = myScanner.nextInt();
 		
 		if(armEat == 0)
 		{
-			System.out.println("Not hungry? oh so sad....");
+//			System.out.println("Not hungry? oh so sad....");
+			popup.displayText("Not hungry? oh so sad....");
 		}
 		else if(armEat < 0)
 		{
-			System.out.println("Reality is hard or you - it is impossible to eat a negative amount");
+//			System.out.println("Reality is hard or you - it is impossible to eat a negative amount");
+			popup.displayText("Reality is hard or you - it is impossible to eat a negative amount");
 		}
 		else if (armEat > currentMonster.getarmCount())
 		{
-			System.out.println("You are not allowed to eat more than exists on me :/ :X");
+//			System.out.println("You are not allowed to eat more than exists on me :/ :X");
+			popup.displayText("You are not allowed to eat more than exists on me :/ :X");
 		}
 		else
 		{
 			 currentMonster.setarmCount(currentMonster.getarmCount() - armEat);
-			System.out.println("Ok, now I have this many arm " + currentMonster.getarmCount());
+//			System.out.println("Ok, now I have this many arm " + currentMonster.getarmCount());
+			popup.displayText("Ok, now I have this many arm " + currentMonster.getarmCount());
 		}
 		
-		System.out.println("How any tentacles do you want to eat? I have " + currentMonster.getTentacleAmount());
-		double food = myScanner.nextDouble();
+//		System.out.println("How any tentacles do you want to eat? I have " + currentMonster.getTentacleAmount());
+		double food = 0.0;
+		String tentacleResponse = popup.getResponse("\"How any tentacles do you want to eat? I have \" + currentMonster.getTentacleAmount()");
+		if(isValidDouble(tentacleResponse))
+		{
+			food = Double.parseDouble(tentacleResponse);
+		}
+		
+		
 		if(food == currentMonster.getTentacleAmount())
 		{
-			System.out.println("You ate all my tentacles!!!");
+//			System.out.println("You ate all my tentacles!!!");
+			popup.displayText("You ate all my tentacles!!!");
 		}
 		else
 		{
-			System.out.println("More likely");
+//			System.out.println("More likely");
+			popup.displayText("More likely");
 		}
 		
 		popup.displayText("Hi there ready to play???");
@@ -121,6 +135,24 @@ public void start()
 		{
 		popup.displayText("you need to input an int, " + sample + "is not valid.");	
 		}
+		return valid;
+	}
+	
+	private boolean isValidDouble(String sampleDouble)
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Double.parseDouble(sampleDouble);
+			valid = true;
+			
+		}
+		catch(NumberFormatException error)
+		{
+			popup.displayText("you need to type a double " + sampleDouble + "is not valid.");
+		}
+		
 		return valid;
 	}
 }
