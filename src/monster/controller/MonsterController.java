@@ -25,17 +25,22 @@ public void start()
 //	System.out.println("i am feeling hungry, i am going to eat one of fred arms");
 	popup.displayText("i am feeling hungry, i am going to eat one of fred arms");
 	fred.setarmCount(fred.getarmCount() - 1);
-	System.out.println(fred);
+	popup.displayText(toString());
 	
 	interactWithMonster(fred);
 	}
 	
 	
 	private void interactWithMonster(MarshmallowMonster currentMonster)
+
 	{
 		Scanner myScanner = new Scanner(System.in);
-		System.out.println(currentMonster.getName() + " wants know how many eyes you want to eat, please type in how many");
-		int consumed = myScanner.nextInt();
+//		System.out.println(currentMonster.getName() + " wants know how many eyes you want to eat, please type in how many");
+		int consumed;
+		String response = popup.getResponse(currentMonster.getName() + " wants know how many eyes you want to eat, please type in how many");
+		
+		consumed = Integer.parseInt(response);
+//		int consumed = myScanner.nextInt();
 		currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
 		System.out.println(currentMonster);
 		
@@ -100,4 +105,22 @@ public void start()
 		
 		
 }
+
+	//Helper methods
+	private boolean isValidInteger(String sample)
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Integer.parseInt(sample);
+			valid = true;
+			
+		}
+		catch(NumberFormatException error)
+		{
+		popup.displayText("you need to input an int, " + sample + "is not valid.");	
+		}
+		return valid;
+	}
 }
