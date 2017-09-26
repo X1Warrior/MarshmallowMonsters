@@ -49,11 +49,30 @@ public void start()
 		
 //		int consumed = myScanner.nextInt();
 		currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
+		String response = popup.getResponse(currentMonster.getName() + "wants to know how many eyes you want to eat please lighten his load");
+		
+		while(!isValidInteger(response))
+		{
+			popup.displayText("grrr type in a better answ next time");
+			response = popup.getResponse("Type in a integer value!");
+		}
+		
+		
+		if(isValidInteger(response))
+		{
+			consumed = Integer.parseInt(response);
+		}
+		
 		System.out.println(currentMonster);
 //		System.out.println("How my eyes are you interested in eating?, I Have" + currentMonster.getEyeCount());
-		 String response = popup.getResponse("How my eyes are you interested in eating?, I Have" + currentMonster.getEyeCount());
 		//consumed = myScanner.nextInt();
-		int eyeEat = myScanner.nextInt();
+		response = popup.getResponse("How my eyes are you interested in eating?, I Have" + currentMonster.getEyeCount());
+		while(!isValidInteger(response))
+		{
+			response = popup.getResponse("No type in a integer value aka 0....2billion");
+		}
+		
+		int eyeEat = Integer.parseInt(response);		
 		
 		if(eyeEat == 0)
 		{
@@ -79,7 +98,12 @@ public void start()
 //		System.out.println("How many arms are you interested in eating?, I Have" + currentMonster.getarmCount());
 		popup.getResponse("How many arms are you interested in eating?, I Have" + currentMonster.getarmCount());
 		//consumed = myScanner.nextInt();
-		int armEat = myScanner.nextInt();
+		while(!isValidInteger(response))
+		{
+			response = popup.getResponse("No type in a integer value cmon dingus.");
+		}
+		
+		int armEat = Integer.parseInt(response);
 		
 		if(armEat == 0)
 		{
