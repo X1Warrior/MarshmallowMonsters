@@ -17,12 +17,15 @@ public class MonsterController
 public void start()
 	{
 	int count= 0;
-	while(count< 10)
+//	while(count< 10)
+//	{
+//		popup.displayText("Am i not the coolest??!");
+//		count +=2;
+//	}
+	for(int loop = 0; loop < 10; loop+= 1)
 	{
-		popup.displayText("Am i not the coolest??!");
-		count +=2;
+		popup.displayText("This is loop # " + (loop + 1 ) + " of ten");
 	}
-	
 	
 	MarshmallowMonster basic = new MarshmallowMonster();
 //	System.out.println(basic);
