@@ -44,10 +44,27 @@ public void start()
 
 	monsterList.add(basic);
 	monsterList.add(fred);
+	useList();
 	
 	interactWithMonster(fred);
 	}
-	
+	private void useList()
+	{
+		for (int index = 0; index < monsterList.size(); index++)
+		{
+			MarshmallowMonster currentMonster= monsterList.get(index);
+			popup.displayText(currentMonster.getName());
+			String updateName = popup.getResponse("What should my new name be?");
+			currentMonster.setName(updateName);
+			popup.displayText("my new name is " + currentMonster.getName());
+		}
+		
+		for(MarshmallowMonster current : monsterList)
+		{
+			popup.displayText("my name is " + current.getName());
+		}
+		
+	}
 
 
 	private void interactWithMonster(MarshmallowMonster currentMonster)
